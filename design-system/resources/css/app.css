@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-surface text-navy-900 font-sans antialiased transition-colors duration-200;
+  }
+
+  html.dark body {
+    @apply bg-surface-dark text-gray-bg;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-semibold text-navy dark:text-white;
+  }
+
+  ::selection {
+    @apply bg-green-200 text-navy-900;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Shared components                                                  */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .k-container {
+    @apply mx-auto w-full max-w-content px-6 md:px-10;
+  }
+
+  .k-section {
+    @apply py-16 md:py-24;
+  }
+
+  /* Buttons */
+  .k-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill px-6 py-3
+           font-sans font-medium text-sm tracking-wide transition-all duration-150;
+  }
+  .k-btn-primary {
+    @apply k-btn bg-green-400 text-navy-900 hover:bg-green-500 hover:-translate-y-0.5
+           shadow-sm hover:shadow-card;
+  }
+  .k-btn-outline {
+    @apply k-btn border border-navy/20 text-navy hover:border-green-400 hover:text-green-600
+           dark:border-white/20 dark:text-white dark:hover:border-green-400 dark:hover:text-green-400;
+  }
+  .k-btn-ghost {
+    @apply k-btn text-navy/70 hover:text-navy dark:text-white/70 dark:hover:text-white;
+  }
+
+  /* Cards */
+  .k-card {
+    @apply rounded-card border border-gray-border bg-white p-6 shadow-card
+           transition-colors duration-200
+           dark:border-white/10 dark:bg-surface-dark-alt dark:shadow-card-dark;
+  }
+
+  /* Eyebrow / kicker label */
+  .k-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-green-500;
+  }
+
+  /* Nav link */
+  .k-navlink {
+    @apply text-sm font-medium text-navy/80 hover:text-green-500 transition-colors
+           dark:text-white/80 dark:hover:text-green-400;
+  }
+
+  /* Section divider rule, Automattic-style plain divisions */
+  .k-rule {
+    @apply border-t border-gray-border dark:border-white/10;
+  }
+}
